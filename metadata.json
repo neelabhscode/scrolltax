@@ -1,0 +1,5 @@
+{
+  "name": "Doomscroll Audit",
+  "description": "A POS terminal that audits your Screen Time screenshot and prints a witty thermal receipt.",
+  "requestFramePermissions": []
+}
