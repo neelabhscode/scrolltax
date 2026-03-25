@@ -236,25 +236,7 @@ export default function App() {
               </p>
             </motion.div>
 
-            {/* Screen 2 overlay (does not affect layout height) */}
-            {!isPrinting && (isScanning || isParsing) && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: prefersReducedMotion ? 0 : 0.25, ease: "easeOut" }}
-                className="absolute inset-0 flex items-center justify-center lg:justify-start"
-              >
-                <h1 className="text-4xl lg:text-6xl font-bold font-mono text-zinc-100 uppercase flex">
-                  GENERATING
-                  <span className="flex w-16 text-zinc-100">
-                    <motion.span animate={{ opacity: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 1.5, delay: 0 }}>.</motion.span>
-                    <motion.span animate={{ opacity: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 1.5, delay: 0.2 }}>.</motion.span>
-                    <motion.span animate={{ opacity: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 1.5, delay: 0.4 }}>.</motion.span>
-                  </span>
-                </h1>
-              </motion.div>
-            )}
+            {/* Mobile Screen 2 keeps the area visually clean (no generating overlay text). */}
           </div>
 
           {/* Desktop: restore original left-panel behavior (not mobile-only tweaks) */}
