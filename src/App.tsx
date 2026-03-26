@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, type ChangeEvent } from "react";
 import { POSMachine } from "./components/POSMachine";
 import { Receipt } from "./components/Receipt";
+import { AnimatedGridPattern } from "./components/ui/animated-grid-pattern";
 import { parseScreenTimeImage } from "./lib/gemini";
 import { motion, AnimatePresence } from "motion/react";
 import { RefreshCw, Download } from "lucide-react";
@@ -165,12 +166,12 @@ export default function App() {
   return (
     <div className="min-h-[100dvh] bg-black flex flex-col items-center justify-start lg:justify-center overflow-hidden relative overscroll-none pt-12 lg:pt-0">
       {/* Background Grid */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-30"
-        style={{
-          backgroundImage: `linear-gradient(to right, #334155 1px, transparent 1px), linear-gradient(to bottom, #334155 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
+      <AnimatedGridPattern
+        numSquares={30}
+        maxOpacity={0.65}
+        duration={2.2}
+        repeatDelay={1}
+        className="mask-[radial-gradient(500px_circle_at_center,white,transparent)] inset-x-0 inset-y-[-30%] h-[200%] skew-y-12 z-0 opacity-100 lg:opacity-[0.35]"
       />
       {/* Grid edge fade (all viewports) */}
       <div
